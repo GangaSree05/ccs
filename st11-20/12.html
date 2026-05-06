@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Mini Statement</title>
+
+<script>
+
+let transactions = [];
+
+function addTransaction() {
+
+    let amount =
+        document.getElementById("amount").value;
+
+    if(amount == "") {
+
+        alert("Enter Amount");
+
+    } else {
+
+        transactions.unshift(
+            "Debited ₹" + amount
+        );
+
+        displayStatement();
+    }
+}
+
+function displayStatement() {
+
+    document.getElementById("statement")
+        .innerHTML =
+        transactions.join("<br>");
+}
+
+</script>
+</head>
+
+<body>
+
+<h2>Mini Statement Module</h2>
+
+Enter Amount:
+<input type="text" id="amount">
+
+<button onclick="addTransaction()">
+Add Transaction
+</button>
+
+<hr>
+
+<h3>Recent Transactions</h3>
+
+<div id="statement"></div>
+
+</body>
+</html>

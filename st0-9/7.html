@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Auto Suggestion</title>
+
+<script>
+
+let products = [
+"Laptop",
+"Laptop Bag",
+"Laptop Stand",
+"Mobile",
+"Mouse",
+"Monitor"
+];
+
+function showSuggestions() {
+
+    let input =
+        document.getElementById("search").value.toLowerCase();
+
+    let output = "";
+
+    for(let i = 0; i < products.length; i++) {
+
+        if(products[i].toLowerCase().includes(input)
+            && input != "") {
+
+            output += products[i] + "<br>";
+        }
+    }
+
+    if(output == "") {
+
+        output = "No Suggestions Found";
+    }
+
+    document.getElementById("result").innerHTML =
+        output;
+}
+
+</script>
+</head>
+
+<body>
+
+<h2>Search Auto Suggestion</h2>
+
+Enter Product:
+<input type="text" id="search"
+onkeyup="showSuggestions()">
+
+<br><br>
+
+<div id="result"></div>
+
+</body>
+</html>

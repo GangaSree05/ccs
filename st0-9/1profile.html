@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Profile Update</title>
+<script>
+function validateForm() {
+    let name = document.forms["profileForm"]["name"].value;
+    let phone = document.forms["profileForm"]["phone"].value;
+
+    if(name == "") {
+        alert("Name cannot be empty");
+        return false;
+    }
+
+    if(phone.length != 10 || isNaN(phone)) {
+        alert("Invalid Contact Number");
+        return false;
+    }
+
+    alert("Profile Updated Successfully");
+    return true;
+}
+</script>
+</head>
+
+<body>
+
+<h2>Profile Update Form</h2>
+
+<form name="profileForm" onsubmit="return validateForm()">
+
+Name:
+<input type="text" name="name"><br><br>
+
+Address:
+<input type="text" name="address"><br><br>
+
+Contact Number:
+<input type="text" name="phone"><br><br>
+
+<input type="submit" value="Update">
+
+</form>
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Session Management</title>
+
+<script>
+
+let sessionActive = false;
+
+function login() {
+
+    sessionActive = true;
+
+    document.getElementById("status").innerHTML =
+        "Session Created Successfully";
+}
+
+function accessPage() {
+
+    if(sessionActive) {
+
+        alert("Access Granted");
+
+    } else {
+
+        alert("Access Denied: Invalid Session");
+    }
+}
+
+function logout() {
+
+    sessionActive = false;
+
+    document.getElementById("status").innerHTML =
+        "Logged Out";
+}
+
+</script>
+</head>
+
+<body>
+
+<h2>Session Management System</h2>
+
+<button onclick="login()">Login</button>
+
+<button onclick="accessPage()">Access Page</button>
+
+<button onclick="logout()">Logout</button>
+
+<br><br>
+
+<div id="status"></div>
+
+</body>
+</html>

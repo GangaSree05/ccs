@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Payment Gateway Simulation</title>
+    <style>
+        body { font-family: Arial; text-align: center; margin-top: 50px; }
+        button { padding: 10px 20px; margin: 10px; }
+        #status { font-size: 20px; margin-top: 20px; }
+    </style>
+</head>
+<body>
+
+<h2>Payment Page</h2>
+
+<button onclick="redirectToGateway()">Pay Now</button>
+
+<div id="status"></div>
+
+<script>
+function redirectToGateway() {
+    document.getElementById("status").innerHTML = "Redirecting to Payment Gateway...";
+    
+    setTimeout(() => {
+        simulatePayment();
+    }, 2000);
+}
+
+function simulatePayment() {
+    let result = Math.random();
+
+    if (result < 0.6) {
+        showSuccess();
+    } else if (result < 0.9) {
+        showFailure();
+    } else {
+        showPending();
+    }
+}
+
+function showSuccess() {
+    document.getElementById("status").innerHTML = "Payment Successful";
+}
+
+function showFailure() {
+    document.getElementById("status").innerHTML = "Payment Failed";
+}
+
+function showPending() {
+    document.getElementById("status").innerHTML = "Payment Pending";
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Secure Login</title>
+
+<script>
+
+let attempts = 0;
+
+function login() {
+
+    let username =
+        document.getElementById("username").value;
+
+    let password =
+        document.getElementById("password").value;
+
+    if(attempts >= 5) {
+
+        alert(
+        "Account Locked"
+        );
+
+        return;
+    }
+
+    if(username == "admin"
+        && password == "Admin@123") {
+
+        alert(
+        "Login Successful"
+        );
+
+    } else {
+
+        attempts++;
+
+        alert(
+        "Invalid Credentials"
+        );
+    }
+}
+
+</script>
+</head>
+
+<body>
+
+<h2>Secure Login System</h2>
+
+Username:
+<input type="text"
+id="username">
+
+<br><br>
+
+Password:
+<input type="password"
+id="password">
+
+<br><br>
+
+<button onclick="login()">
+Login
+</button>
+
+</body>
+</html>

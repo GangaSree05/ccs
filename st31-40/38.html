@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Accessibility Testing</title>
+
+<style>
+button:focus, input:focus {
+    border: 3px solid blue;
+}
+</style>
+
+</head>
+
+<body>
+
+<h2>Accessible Login Form</h2>
+
+<form>
+
+<label for="username">Username:</label>
+<input type="text" id="username" aria-label="Username"><br><br>
+
+<label for="password">Password:</label>
+<input type="password" id="password" aria-label="Password"><br><br>
+
+<img src="sample.jpg" alt="Company Logo" width="100">
+
+<br><br>
+
+<button type="submit">Login</button>
+
+</form>
+
+</body>
+</html>

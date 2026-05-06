@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Login Page</title>
+</head>
+
+<body>
+
+<h2>Login Form</h2>
+
+<form>
+
+Username:
+<input type="text" name="username"><br><br>
+
+Password:
+<input type="password" name="password"><br><br>
+
+<button id="login">Login</button>
+
+</form>
+
+</body>
+</html>
+
+
+import java.io.*;
+import java.util.*;
+import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class LoginTest {
+
+    public static void main(String[] args) throws Exception {
+
+        System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
+
+        BufferedReader br = new BufferedReader(new FileReader("logindata.csv"));
+
+        String line;
+
+        br.readLine();
+
+        while((line = br.readLine()) != null) {
+
+            String data[] = line.split(",");
+
+            String username = data[0];
+            String password = data[1];
+            String expected = data[2];
+
+            WebDriver driver = new ChromeDriver();
+
+            driver.get("https://example.com/login");
+
+            driver.findElement(By.name("username")).sendKeys(username);
+
+            driver.findElement(By.name("password")).sendKeys(password);
+
+            driver.findElement(By.id("login")).click();
+
+            String actual;
+
+            try {
+
+                driver.findElement(By.id("dashboard"));
+
+                actual = "Success";
+
+            }
+
+            catch(Exception e) {
+
+                actual = "Failure";
+            }
+
+            System.out.println("Username: " + username);
+            System.out.println("Expected: " + expected);
+            System.out.println("Actual: " + actual);
+
+            if(actual.equals(expected)) {
+                System.out.println("Test Passed");
+            }
+
+            else {
+                System.out.println("Test Failed");
+            }
+
+            System.out.println("--------------------");
+
+            driver.quit();
+        }
+
+        br.close();
+    }
+}

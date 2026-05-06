@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Credit Card Payment</title>
+
+<script>
+
+let balance = 10000;
+
+function makePayment() {
+
+    let amount =
+        parseInt(document.getElementById("amount").value);
+
+    if(amount <= 0 || isNaN(amount)) {
+
+        alert("Invalid Amount");
+
+    }
+    else if(amount > balance) {
+
+        alert("Insufficient Balance");
+
+    }
+    else {
+
+        balance = balance - amount;
+
+        alert(
+            "Payment Successful\nRemaining Balance: ₹"
+            + balance
+        );
+    }
+}
+
+</script>
+</head>
+
+<body>
+
+<h2>Credit Card Payment Module</h2>
+
+Outstanding Balance: ₹10000
+
+<br><br>
+
+Enter Payment Amount:
+<input type="text" id="amount">
+
+<button onclick="makePayment()">
+Pay Now
+</button>
+
+</body>
+</html>

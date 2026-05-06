@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>OTP Verification</title>
+
+<script>
+
+let generatedOTP;
+let expiryTime;
+
+function generateOTP() {
+
+    generatedOTP = Math.floor(100000 + Math.random() * 900000);
+
+    expiryTime = new Date().getTime() + 30000;
+
+    alert("Generated OTP: " + generatedOTP);
+}
+
+function verifyOTP() {
+
+    let enteredOTP =
+        document.getElementById("otp").value;
+
+    let currentTime = new Date().getTime();
+
+    if(currentTime > expiryTime) {
+
+        alert("OTP Expired");
+
+    }
+    else if(enteredOTP == generatedOTP) {
+
+        alert("OTP Verified Successfully");
+
+    }
+    else {
+
+        alert("Invalid OTP");
+    }
+}
+
+</script>
+</head>
+
+<body>
+
+<h2>OTP Verification System</h2>
+
+<button onclick="generateOTP()">
+Generate OTP
+</button>
+
+<br><br>
+
+Enter OTP:
+<input type="text" id="otp">
+
+<button onclick="verifyOTP()">
+Verify OTP
+</button>
+
+</body>
+</html>

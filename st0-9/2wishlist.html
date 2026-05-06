@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Wishlist</title>
+
+<script>
+
+let wishlist = [];
+
+function addItem() {
+
+    let product = document.getElementById("product").value;
+
+    if(product == "") {
+        alert("Enter Product Name");
+        return;
+    }
+
+    if(wishlist.includes(product)) {
+        alert("Item Already Exists in Wishlist");
+        return;
+    }
+
+    wishlist.push(product);
+    displayWishlist();
+
+    alert("Product Added Successfully");
+}
+
+function removeItem() {
+
+    let product = document.getElementById("product").value;
+
+    let index = wishlist.indexOf(product);
+
+    if(index > -1) {
+        wishlist.splice(index,1);
+        displayWishlist();
+        alert("Product Removed");
+    }
+    else {
+        alert("Product Not Found");
+    }
+}
+
+function displayWishlist() {
+
+    document.getElementById("output").innerHTML =
+        wishlist.join("<br>");
+}
+
+</script>
+
+</head>
+
+<body>
+
+<h2>Wishlist Management</h2>
+
+Enter Product:
+<input type="text" id="product">
+
+<br><br>
+
+<button onclick="addItem()">Add</button>
+
+<button onclick="removeItem()">Remove</button>
+
+<hr>
+
+<h3>Wishlist Items:</h3>
+
+<div id="output"></div>
+
+</body>
+</html>

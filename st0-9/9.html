@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>File Download</title>
+
+<script>
+
+function downloadFile() {
+
+    let text =
+        "Invoice Report Download Successful";
+
+    let blob = new Blob([text],
+        {type: "text/plain"});
+
+    let link =
+        document.createElement("a");
+
+    link.href =
+        window.URL.createObjectURL(blob);
+
+    link.download = "report.txt";
+
+    link.click();
+
+    alert("Download Completed Successfully");
+}
+
+</script>
+</head>
+
+<body>
+
+<h2>File Download System</h2>
+
+<button onclick="downloadFile()">
+Download Report
+</button>
+
+</body>
+</html>

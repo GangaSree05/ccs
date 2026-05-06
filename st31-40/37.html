@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>System Testing Demo</title>
+
+<script>
+function processOrder() {
+
+    let username = document.getElementById("username").value;
+    let product = document.getElementById("product").value;
+    let payment = document.getElementById("payment").value;
+
+    if(username == "") {
+        alert("Login Failed");
+        return false;
+    }
+
+    if(product == "") {
+        alert("No Product Selected");
+        return false;
+    }
+
+    if(payment.length != 4) {
+        alert("Payment Failed");
+        return false;
+    }
+
+    alert("Order Confirmed Successfully");
+    return true;
+}
+</script>
+
+</head>
+
+<body>
+
+<h2>System Testing Application</h2>
+
+<form onsubmit="return processOrder()">
+
+Username:
+<input type="text" id="username"><br><br>
+
+Select Product:
+<input type="text" id="product"><br><br>
+
+Payment PIN:
+<input type="password" id="payment"><br><br>
+
+<input type="submit" value="Place Order">
+
+</form>
+
+</body>
+</html>

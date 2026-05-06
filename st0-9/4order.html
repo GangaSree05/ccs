@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Order Tracking</title>
+
+<script>
+
+let statuses = [
+"Order Confirmed",
+"Packed",
+"Shipped",
+"In Transit",
+"Out for Delivery",
+"Delivered"
+];
+
+let index = 0;
+
+function nextStatus() {
+
+    if(index < statuses.length) {
+
+        document.getElementById("status").innerHTML =
+            statuses[index];
+
+        index++;
+    }
+    else {
+
+        alert("Order Already Delivered");
+    }
+}
+
+</script>
+</head>
+
+<body>
+
+<h2>Order Tracking System</h2>
+
+<h3>Current Status:</h3>
+
+<div id="status">
+No Status
+</div>
+
+<br>
+
+<button onclick="nextStatus()">
+Update Status
+</button>
+
+</body>
+</html>

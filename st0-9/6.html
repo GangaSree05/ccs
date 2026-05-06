@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Notification System</title>
+
+<script>
+
+let sent = false;
+
+function sendNotification() {
+
+    let email =
+        document.getElementById("email").value;
+
+    if(email == "") {
+
+        alert("Enter Email Address");
+
+    }
+    else if(sent) {
+
+        alert("Duplicate Notification Prevented");
+
+    }
+    else {
+
+        sent = true;
+
+        alert("Notification Sent Successfully");
+    }
+}
+
+</script>
+</head>
+
+<body>
+
+<h2>Notification System</h2>
+
+Enter Email:
+<input type="text" id="email">
+
+<br><br>
+
+<button onclick="sendNotification()">
+Send Notification
+</button>
+
+</body>
+</html>

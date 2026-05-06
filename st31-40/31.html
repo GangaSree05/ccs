@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>XSS Demo</title>
+</head>
+
+<body>
+
+<h2>Feedback Form</h2>
+
+<input type="text"
+id="feedback">
+
+<button onclick="showInput()">
+Submit
+</button>
+
+<p id="output"></p>
+
+<script>
+
+function showInput() {
+
+    let data =
+        document.getElementById(
+        "feedback").value;
+
+    document.getElementById(
+        "output").innerHTML = data;
+}
+
+</script>
+
+</body>
+</html>

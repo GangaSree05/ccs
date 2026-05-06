@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Coupon Validation</title>
+
+<script>
+
+let validCoupon = "SAVE20";
+let expiryDate = "2026-12-31";
+let used = false;
+
+function applyCoupon() {
+
+    let coupon =
+        document.getElementById("coupon").value;
+
+    let today = new Date().toISOString().split('T')[0];
+
+    if(coupon == "") {
+
+        alert("Enter Coupon Code");
+
+    }
+    else if(coupon != validCoupon) {
+
+        alert("Invalid Coupon");
+
+    }
+    else if(today > expiryDate) {
+
+        alert("Coupon Expired");
+
+    }
+    else if(used) {
+
+        alert("Coupon Already Used");
+
+    }
+    else {
+
+        used = true;
+
+        alert("Coupon Applied Successfully");
+    }
+}
+
+</script>
+</head>
+
+<body>
+
+<h2>Coupon Application System</h2>
+
+Enter Coupon:
+<input type="text" id="coupon">
+
+<button onclick="applyCoupon()">
+Apply Coupon
+</button>
+
+</body>
+</html>
